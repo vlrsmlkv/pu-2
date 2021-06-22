@@ -7,21 +7,22 @@ const FileField = ({value, onChange}) => {
 
             const {files} = event.target;
 
-            let filesData = [];
-
             if (files.length) {
 
-                for (let i = 0; i < files.length; i++) {
-                    const reader = new FileReader();
 
-                    reader.onload = (event) => {
-                        filesData.push(event.target.result);
-                    }        
+                let filesData = [];
+                let i = 0;
 
-                    reader.readAsText(files[i]);
-                }
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    i++; 
+                    filesData.push(event.target.result);
+                    if (i < files.length) reader.readAsText(files[i]);
+                    if (i === files.length) onChange(filesData);
+                }           
 
-                onChange(filesData);
+                if (i === 0) reader.readAsText(files[0]);
+                
             }   
         }   
     }
