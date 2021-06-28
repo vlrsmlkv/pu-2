@@ -1,19 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
 import FileField from "./components/FileField";
+import CheckBox from "./components/CheckBox";
+
 import PreviewProcessedData from "./components/PreviewProcessedData";
 
-import {createExcelFile, downloadFinalXLSX} from "./utils.js"
+import {createExcelFile, createExcelFile2, downloadFinalXLSX} from "./utils.js"
+
+import { BsDownload } from "react-icons/bs";
 
 const App = () => {
   const [fileData, setFileData] = useState(null);
   const [processedData, setProcessedData] = useState(null);
+  const [checkbox, setCheckbox] = useState(null);
 
   let processedDataFromMultipleFiles = [];
   
   const getProcessedData = (initialData) => {
   
-    initialData.forEach(el => processedDataFromMultipleFiles.push(...JSON.parse(el)
+    initialData.forEach(el => processedDataFromMultipleFiles.push(JSON.parse(el)
       .data
       .map(({r1, r2, ils, fzl, izl, ozl}) => ({
             ils: {
@@ -46,25 +51,40 @@ const App = () => {
     return processedDataFromMultipleFiles;
   }
 
+  const createExcelFileDependingOnCheckboxState = (data) => {
+    (!checkbox) ? downloadFinalXLSX(createExcelFile(data)) : downloadFinalXLSX(createExcelFile2(data))
+  }
+
   return (
     <div className="App">
+
+      <div className="fileFieldAndCheckBox">
       <FileField
         value={fileData}
         onChange={setFileData}
       />
 
-      <div>
-        <button onClick={() => setProcessedData(
-          getProcessedData(fileData)
-        )}>
-          Process Files
-        </button>
-
-        <button onClick={() => downloadFinalXLSX(createExcelFile(processedData))}>Download</button>
-
+      <CheckBox
+        value={checkbox}
+        onChange={setCheckbox}
+      />
       </div>
 
-      <PreviewProcessedData data={processedData}/>
+      <div className ="process-button">
+        <p>Шаг 2</p>
+        <button onClick={() => setProcessedData(
+          getProcessedData(fileData)
+          )}>
+          Обработать файлы
+        </button>
+        <PreviewProcessedData data={processedData}/>
+      </div>
+
+      <div className ="download-button">
+        <p>Шаг 3</p>
+        <button onClick={()=>createExcelFileDependingOnCheckboxState(processedData)}><span>Скачать <BsDownload size ="25px"/></span></button>
+      </div>
+      
     </div>
   );
 }
