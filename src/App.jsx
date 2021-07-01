@@ -72,8 +72,10 @@ const App = () => {
 
       <div className ="process-button">
         <p>Шаг 2</p>
-        <button onClick={() => setProcessedData(
-          getProcessedData(fileData)
+        <button 
+          disabled={!fileData}   
+          onClick={() => setProcessedData(
+            getProcessedData(fileData)
           )}>
           Обработать файлы
         </button>
@@ -82,7 +84,9 @@ const App = () => {
 
       <div className ="download-button">
         <p>Шаг 3</p>
-        <button onClick={()=>createExcelFileDependingOnCheckboxState(processedData)}><span>Скачать <BsDownload size ="25px"/></span></button>
+        <button 
+          disabled={!processedData}
+          onClick={()=>createExcelFileDependingOnCheckboxState(processedData)}><span>Скачать <BsDownload size ="25px"/></span></button>
       </div>
       
     </div>

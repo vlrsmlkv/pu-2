@@ -2,7 +2,7 @@ const PreviewProcessedData = ({data}) => {
     if (!data) return null;
 
     return (
-        <div>Данные обработаны!</div>
+        <div className="processed-data-message">Данные обработаны!</div>
     );
 }
 

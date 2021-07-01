@@ -146,3 +146,8 @@ button:hover {
   /* flex-wrap: nowrap; */
   /*  float: left; */
 }
+
+.processed-data-message {
+  margin-top: 10px;
+  font-size: small;
+}
