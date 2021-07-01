@@ -1,2 +1,0 @@
-(this["webpackJsonppu-2"]=this["webpackJsonppu-2"]||[]).push([[0],{10:function(t,e,n){"use strict";n.r(e);var c=n(1),s=n.n(c),r=n(3),i=n.n(r),o=n(0),p=function(){return Object(o.jsx)("div",{className:"App"})};n(9);i.a.render(Object(o.jsx)(s.a.StrictMode,{children:Object(o.jsx)(p,{})}),document.getElementById("root"))},9:function(t,e,n){}},[[10,1,2]]]);
-//# sourceMappingURL=main.109b0c23.chunk.js.map
