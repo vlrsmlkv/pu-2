@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { AiOutlinePaperClip } from "react-icons/ai";
 
-const FileField = ({value, onChange}) => {
+const FileField = ({onChange}) => {
     const [filesNumber, setFilesNumber] = useState(null);
     const [filesNameList, setFilesNameList] = useState(null);
     
