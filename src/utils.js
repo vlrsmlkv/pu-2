@@ -63,13 +63,13 @@ const sheetToArrayBuffer = (s) => {
   return buf;    
 }     
 
-const downloadFinalXLSX = (data) => {
+const downloadExcelFile = (data) => {
   saveAs(new Blob([sheetToArrayBuffer(data)],{type:"application/octet-stream"}), 'test.xlsx');
 }
 
 
 
-export { createExcelFile, downloadFinalXLSX, getProcessedData }
+export { createExcelFile, downloadExcelFile, getProcessedData }
 
 
   

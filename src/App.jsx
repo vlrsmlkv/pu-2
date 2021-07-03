@@ -5,7 +5,7 @@ import CheckBox from "./components/CheckBox";
 
 import PreviewProcessedData from "./components/PreviewProcessedData";
 
-import {createExcelFile, downloadFinalXLSX, getProcessedData} from "./utils.js"
+import {createExcelFile, downloadExcelFile, getProcessedData} from "./utils.js"
 
 import { BsDownload } from "react-icons/bs";
 
@@ -43,7 +43,7 @@ const App = () => {
         <p>Шаг 3</p>
         <button 
           disabled={!processedData}
-          onClick={() => downloadFinalXLSX(createExcelFile(processedData, checkboxState))}>
+          onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}>
           <span>Скачать <BsDownload size ="25px"/></span>
         </button>
       </div>

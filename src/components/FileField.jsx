@@ -43,8 +43,8 @@ const FileField = ({onChange}) => {
                         (filesNumber > 1) 
                         ? `Выбрано файлов: ${filesNumber}` 
                         : (filesNumber === 1) 
-                        ? filesNameList
-                        : (<>Выбрать файлы <AiOutlinePaperClip size="25px"/></>)
+                            ? filesNameList
+                            : (<>Выбрать файлы <AiOutlinePaperClip size="25px"/></>)
                     }
             </label>
             
