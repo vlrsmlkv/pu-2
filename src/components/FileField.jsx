@@ -29,6 +29,14 @@ const FileField = ({onChange}) => {
             }
         }
     }
+
+    let inputFileLabel;
+    
+    (filesNumber > 1) 
+        ? inputFileLabel = `Выбрано файлов: ${filesNumber}` 
+        : (filesNumber === 1) 
+            ? inputFileLabel = filesNameList
+            : inputFileLabel = (<>Выбрать файлы <AiOutlinePaperClip size="25px"/></>)
     
     return (
         <div className = "input-field">
@@ -39,13 +47,7 @@ const FileField = ({onChange}) => {
                     accept=" .txt" 
                     multiple="multiple"/>
             <label htmlFor="inputFile" className="input-field-label"> 
-                    {
-                        (filesNumber > 1) 
-                        ? `Выбрано файлов: ${filesNumber}` 
-                        : (filesNumber === 1) 
-                            ? filesNameList
-                            : (<>Выбрать файлы <AiOutlinePaperClip size="25px"/></>)
-                    }
+                    {inputFileLabel}
             </label>
             
         </div>

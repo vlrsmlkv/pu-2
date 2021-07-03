@@ -12,7 +12,7 @@ import { BsDownload } from "react-icons/bs";
 const App = () => {
   const [fileData, setFileData] = useState(null);
   const [processedData, setProcessedData] = useState(null);
-  const [checkboxState, setCheckboxState] = useState(null);
+  const [checkboxState, setCheckboxState] = useState(false);
 
   return (
     <div className="App">
@@ -23,6 +23,7 @@ const App = () => {
       />
 
       <CheckBox
+        value={checkboxState}
         onChange={setCheckboxState}
       />
       </div>
