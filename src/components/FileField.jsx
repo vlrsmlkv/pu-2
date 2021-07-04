@@ -30,13 +30,11 @@ const FileField = ({onChange}) => {
         }
     }
 
-    let inputFileLabel;
-    
-    (filesNumber > 1) 
-        ? inputFileLabel = `Выбрано файлов: ${filesNumber}` 
+    const inputFileLabel = filesNumber > 1
+        ? `Выбрано файлов: ${filesNumber}` 
         : (filesNumber === 1) 
-            ? inputFileLabel = filesNameList
-            : inputFileLabel = (<>Выбрать файлы <AiOutlinePaperClip size="25px"/></>)
+            ? filesNameList
+            : <>Выбрать файлы <AiOutlinePaperClip size="25px"/></>
     
     return (
         <div className = "input-field">
