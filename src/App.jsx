@@ -7,7 +7,7 @@ import PreviewProcessedData from "./components/PreviewProcessedData";
 
 import {createExcelFile, downloadExcelFile, getProcessedData} from "./utils.js"
 
-import { BsDownload } from "react-icons/bs";
+import { Download } from 'react-feather';
 
 const App = () => {
   const [fileData, setFileData] = useState(null);
@@ -45,7 +45,7 @@ const App = () => {
         <button 
           disabled={!processedData}
           onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}>
-          <span>Скачать <BsDownload size ="25px"/></span>
+          <span>Скачать <Download/></span>
         </button>
       </div>
       

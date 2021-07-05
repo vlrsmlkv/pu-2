@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { AiOutlinePaperClip } from "react-icons/ai";
+import { Paperclip } from 'react-feather';
 
 const FileField = ({onChange}) => {
     const [filesNumber, setFilesNumber] = useState(null);
@@ -34,7 +34,7 @@ const FileField = ({onChange}) => {
         ? `Выбрано файлов: ${filesNumber}` 
         : (filesNumber === 1) 
             ? filesNameList
-            : <>Выбрать файлы <AiOutlinePaperClip size="25px"/></>
+            : <>Выбрать файлы <Paperclip/></>
     
     return (
         <div className = "input-field">
