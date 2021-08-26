@@ -34,7 +34,7 @@ const FileField = ({onChange}) => {
         ? `Выбрано файлов: ${filesNumber}` 
         : (filesNumber === 1) 
             ? filesNameList
-            : <>Выбрать файлы <Paperclip/></>
+            : <span className="button-content">Выбрать файлы <Paperclip/></span>
     
     return (
         <div className = "input-field">
