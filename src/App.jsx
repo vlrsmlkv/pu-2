@@ -32,9 +32,7 @@ const App = () => {
         <p>Шаг 2</p>
         <button 
           disabled={!fileData}   
-          onClick={() => setProcessedData(
-            getProcessedData(fileData)
-          )}>
+          onClick={() => setProcessedData(getProcessedData(fileData))}>
           Обработать файлы
         </button>
         <PreviewProcessedData data={processedData}/>
