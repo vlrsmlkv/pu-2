@@ -7,31 +7,30 @@
   color: #333;
 }
 
-.App {
-  border: 0;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.file-field-and-checkbox, .input-field, .process-button, .download-button {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  align-items: center;
-}
-
 p {
   font-size: x-large;
   margin: 30px 10px;
 }
 
-span {
+.App {
+  display: flex;
+  justify-content: space-around;
+  min-height: 100vh;
+  margin: 0em 10em;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0em 0em 1em 0.05em rgb(133, 133, 133);
+}
+
+.file-field-and-checkbox, .input-field, .process-button, .download-button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
 }
 
 button {
