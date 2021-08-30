@@ -30,17 +30,20 @@ const FileField = ({onChange}) => {
       }
     }
   }
-
-  const inputFileLabel = filesNumber > 1
-    ? `Выбрано файлов: ${filesNumber}` 
-    : (filesNumber === 1) 
-      ? filesNameList
-      : <span className="button-content">Выбрать файлы <Paperclip/></span>
+  
+  const inputFileLabel = <span className="button-content"> 
+    {filesNumber > 1 
+      ? `Выбрано файлов: ${filesNumber}`
+      : (filesNumber === 1) 
+        ? `${filesNameList}`
+        : <>Выбрать файлы <Paperclip/></>
+    }
+  </span> 
   
   return (
     <div className = "input-field">
       <p>Шаг 1</p>
-      <input 
+      <input
         type="file" 
         id="inputFile" 
         onChange={onFileChangeHandler} 
