@@ -42,7 +42,6 @@ const FileField = ({onChange}) => {
   
   return (
     <div className = "input-field">
-      <p>Шаг 1</p>
       <input
         type="file" 
         id="inputFile" 
