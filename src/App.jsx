@@ -1,54 +1,30 @@
-import React, {useState} from "react";
+import React from "react";
+import Main from "./pages/Main";
+import Info from "./pages/Info";
+import NavBar from "./components/NavBar";
 
-import FileField from "./components/FileField";
-import CheckBox from "./components/CheckBox";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
-import PreviewProcessedData from "./components/PreviewProcessedData";
+const App = () => (
+  <div className="root-page">
+    <Router basename="pu-2">
+        <NavBar/>
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <Main />
+            </Route>
+            <Route exact path="/info">
+              <Info />
+            </Route>
+            <Route>
+              <Redirect to="/"/>
+            </Route>
+          </Switch>
+        </div>
+    </Router>
+  </div>
 
-import {createExcelFile, downloadExcelFile, getProcessedData} from "./utils.js"
-
-import { Download } from 'react-feather';
-
-const App = () => {
-  const [fileData, setFileData] = useState(null);
-  const [processedData, setProcessedData] = useState(null);
-  const [checkboxState, setCheckboxState] = useState(false);
-
-  return (
-    <div className="App">
-
-      <div className="file-field-and-checkbox">
-      <FileField
-        onChange={setFileData}
-      />
-
-      <CheckBox
-        value={checkboxState}
-        onChange={setCheckboxState}
-      />
-      </div>
-
-      <div className="process-button">
-        <p>Шаг 2</p>
-        <button 
-          disabled={!fileData}   
-          onClick={() => setProcessedData(getProcessedData(fileData))}>
-          <span>Обработать файлы</span>
-        </button>
-        <PreviewProcessedData data={processedData}/>
-      </div>
-
-      <div className="download-button">
-        <p>Шаг 3</p>
-        <button 
-          disabled={!processedData}
-          onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}>
-          <span>Скачать <Download/></span>
-        </button>
-      </div>
-      
-    </div>
-  );
-}
+);
 
 export default App;
