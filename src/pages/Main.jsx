@@ -29,21 +29,21 @@ const Main = () => {
       </div>
 
       <div className="process-button">
-        <p>Шаг 2</p>
+        <p>Step 2</p>
         <button 
           disabled={!fileData}   
           onClick={() => setProcessedData(getProcessedData(fileData))}>
-          <span>Обработать файлы</span>
+          <span>Process file</span>
         </button>
         <PreviewProcessedData data={processedData}/>
       </div>
 
       <div className="download-button">
-        <p>Шаг 3</p>
+        <p>Step 3</p>
         <button 
           disabled={!processedData}
           onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}>
-          <span>Скачать <Download/></span>
+          <span>Download <Download/></span>
         </button>
       </div>
     </>
