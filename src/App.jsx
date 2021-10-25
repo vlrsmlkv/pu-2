@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
 
 import FileField from "./components/FileField";
 import CheckBox from "./components/CheckBox";
@@ -10,12 +9,14 @@ import {createExcelFile, downloadExcelFile, getProcessedData} from "./utils.js"
 
 import { Download } from 'react-feather';
 
-import { ws_header } from './consts.js';
+import { ws_header } from './consts';
 
 const App = () => {
   const [fileData, setFileData] = useState(null);
   const [processedData, setProcessedData] = useState(null);
   const [checkboxState, setCheckboxState] = useState(false);
+
+  useEffect(() => setProcessedData(null), [fileData])
 
   return (
     <div className="App">

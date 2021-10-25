@@ -1,6 +1,6 @@
 import XLSX from "xlsx";
 import { saveAs } from 'file-saver';
-import { ws_header } from './consts.js';
+import { ws_header } from './consts';
 
 const getProcessedData = initialData => initialData
   .map(el => JSON.parse(el)
