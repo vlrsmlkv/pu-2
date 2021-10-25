@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 import FileField from "./components/FileField";
 import CheckBox from "./components/CheckBox";
@@ -21,30 +22,20 @@ const App = () => {
       <div className="container">
         <div>
           <p>Шаг 1</p>
-          <div className="file-field-and-checkbox">
-          <FileField
-            onChange={setFileData}
-          />
+            <div className="file-field-and-checkbox">
+            <FileField
+              onChange={setFileData}
+              />
 
-          <CheckBox
-            value={checkboxState}
-            onChange={setCheckboxState}
-          />
+            <CheckBox
+              value={checkboxState}
+              onChange={setCheckboxState}
+            />
           </div>
         </div>
 
         <div>
           <p>Шаг 2</p>
-          <button className="process-button"
-            disabled={!fileData}   
-            onClick={() => setProcessedData(getProcessedData(fileData))}>
-            <span>Обработать файлы</span>
-          </button>
-          {processedData && <div className="processed-data-message">Данные обработаны!</div>}
-        </div>
-
-        <div>
-          <p>Шаг 3</p>
           <button className="download-button"
             disabled={!processedData}
             onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}>
@@ -53,15 +44,14 @@ const App = () => {
         </div>
       </div>
 
-      {processedData 
-        ? <PreviewProcessedData
+        <PreviewProcessedData
+          isDisabledShowButton={!fileData}
+          onShowClick={() => setProcessedData(getProcessedData(fileData))}
           data={processedData}
-          header={ws_header}
+          headerCells={ws_header}
           isVisibleButtons={checkboxState}
         />
-        : <PreviewProcessedData/>
-      }
-      
+
     </div>
   );
 }
