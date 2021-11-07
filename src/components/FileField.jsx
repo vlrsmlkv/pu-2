@@ -36,7 +36,7 @@ const FileField = ({onChange}) => {
       ? `Выбрано файлов: ${filesNumber}`
       : (filesNumber === 1) 
         ? `${filesNameList}`
-        : <>Choose file <Paperclip/></>
+        : <>Choose file(s) <Paperclip/></>
     }
   </span> 
   

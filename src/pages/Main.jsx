@@ -33,7 +33,7 @@ const Main = () => {
         <button 
           disabled={!fileData}   
           onClick={() => setProcessedData(getProcessedData(fileData))}>
-          <span>Process file</span>
+          <span>Process file(s)</span>
         </button>
         <PreviewProcessedData data={processedData}/>
       </div>

@@ -7,7 +7,8 @@ const NavBar = () => {
     <div className="nav-bar">
       <NavLink 
         className="nav-bar-button"
-        exact to="/" 
+        exact
+        to="/" 
         activeClassName="selected" 
         activeStyle={{
           fontWeight: "bold",
@@ -19,14 +20,15 @@ const NavBar = () => {
 
       <NavLink 
         className="nav-bar-button"
-        exact to="/info" 
+        exact
+        to="/info" 
         activeClassName="selected" 
         activeStyle={{
           fontWeight: "bold",
           borderColor: "black"
         }}
       >
-        <Info className="nav-bar-button-icon"/>Info
+        <Info className="nav-bar-button-icon"/> Info
       </NavLink>
     </div> 
   );

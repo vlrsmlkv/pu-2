@@ -90,7 +90,7 @@ ul.unordered li {
   color: #333;
 }
 
-.root-page {
+#root {
   background-color: rgb(231, 231, 231);
   min-height: 100vh;
 }
