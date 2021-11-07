@@ -2,7 +2,13 @@ import classNames from "classnames";
 import { useState } from "react";
 import { Eye } from 'react-feather';
 
-const PreviewProcessedData = ({isDisabledShowButton, data, onShowClick, headerCells, isVisibleButtons}) => {
+const PreviewProcessedData = ({
+  isDisabledShowButton,
+  data,
+  onShowClick,
+  headerCells,
+  isVisibleButtons
+}) => {
 
   const [activeButton, setActiveButton] = useState(-1);
   

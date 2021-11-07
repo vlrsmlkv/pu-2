@@ -16,8 +16,6 @@ const App = () => {
   const [processedData, setProcessedData] = useState(null);
   const [checkboxState, setCheckboxState] = useState(false);
 
-  useEffect(() => setProcessedData(null), [fileData])
-
   return (
     <div className="App">
       <div className="container">
@@ -26,6 +24,7 @@ const App = () => {
             <div className="file-field-and-checkbox">
             <FileField
               onChange={setFileData}
+              setProcessedData={setProcessedData}
               />
 
             <CheckBox
@@ -37,9 +36,11 @@ const App = () => {
 
         <div>
           <p>Шаг 2</p>
-          <button className="download-button"
+          <button 
+            className="download-button"
             disabled={!processedData}
-            onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}>
+            onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}
+          >
             <span>Скачать <Download/></span>
           </button>
         </div>
