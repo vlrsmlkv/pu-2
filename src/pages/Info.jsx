@@ -24,39 +24,37 @@ const Info = () => {
       <InfoBlock
         icon={<BookOpen className="info-page-icon"/>}
         header={"Manual"}
-        infoText={
+      >
+        <ul className="unordered">
+          <li><b>Step 1.</b> Upload files.
             <ul className="unordered">
-              <li><b>Step 1.</b> Upload files.
-                <ul className="unordered">
-                  <li className="additional">In case you want each processed file to be displayed on a separate excel sheet, tick the "Show each file as a separate sheet" checkbox.</li>
-                </ul>
-              </li>
-              <li><b>Step 2.</b> Click on "Show preview" button if needed.</li>
-              <li><b>Step 3.</b> Download .xlsx file with a list of employees and information about them.</li>
+              <li className="additional">In case you want each processed file to be displayed on a separate excel sheet, tick the "Show each file as a separate sheet" checkbox.</li>
             </ul>
-        }
-      />
+          </li>
+          <li><b>Step 2.</b> Click on "Show preview" button if needed.</li>
+          <li><b>Step 3.</b> Download .xlsx file with a list of employees and information about them.</li>
+        </ul>
+      </InfoBlock>
 
       <InfoBlock
         icon={<Upload className="info-page-icon"/>}
         header={"Upload file requirements"}
-        infoText={
-            <ul> 
-              <li>Only .txt files will be accepted.</li>
-              <li>Files cannot be password protected.</li>
-              <li>Required fields of pu-2 form: 
-                  <ul>
-                    <li>ils (Insurance number)</li> 
-                    <li>fzl (Last name)</li> 
-                    <li>izl (First name)</li>
-                    <li>ozl (Patronymic)</li>
-                    <li>dto1 (Dismissal date)</li>
-                    <li>dfr21 (Hiring date).</li>
-                  </ul>
-              </li>
-            </ul>
-        }
-      />
+      >
+        <ul> 
+          <li>Only .txt files will be accepted.</li>
+          <li>Files cannot be password protected.</li>
+          <li>Required fields of pu-2 form: 
+              <ul>
+                <li>ils (Insurance number)</li> 
+                <li>fzl (Last name)</li> 
+                <li>izl (First name)</li>
+                <li>ozl (Patronymic)</li>
+                <li>dto1 (Dismissal date)</li>
+                <li>dfr21 (Hiring date).</li>
+              </ul>
+          </li>
+        </ul>
+      </InfoBlock>
       
     </div>
   );
