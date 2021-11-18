@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Paperclip } from 'react-feather';
 
-const FileField = ({onChange, setProcessedData}) => {
+const FileField = ({onChange}) => {
   const [filesNumber, setFilesNumber] = useState(null);
   const [filesNameList, setFilesNameList] = useState(null);
   
@@ -10,7 +10,6 @@ const FileField = ({onChange, setProcessedData}) => {
     
     setFilesNumber(files.length)
     setFilesNameList(files[0].name)
-    setProcessedData(null);
     
     if (files !== ' ') {
         

@@ -23,9 +23,11 @@ const App = () => {
           <p>Шаг 1</p>
             <div className="file-field-and-checkbox">
             <FileField
-              onChange={setFileData}
-              setProcessedData={setProcessedData}
-              />
+              onChange={(data) => {
+                setFileData(data);
+                setProcessedData(null);
+              }}
+            />
 
             <CheckBox
               value={checkboxState}
@@ -46,13 +48,13 @@ const App = () => {
         </div>
       </div>
 
-        <PreviewProcessedData
-          isDisabledShowButton={!fileData}
-          onShowClick={() => setProcessedData(getProcessedData(fileData))}
-          data={processedData}
-          headerCells={ws_header}
-          isVisibleButtons={checkboxState}
-        />
+      <PreviewProcessedData
+        isDisabledShowButton={!fileData}
+        onShowClick={() => setProcessedData(getProcessedData(fileData))}
+        data={processedData}
+        headerCells={ws_header}
+        isVisibleButtons={checkboxState}
+      />
 
     </div>
   );
