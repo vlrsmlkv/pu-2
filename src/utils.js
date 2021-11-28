@@ -1,5 +1,6 @@
 import XLSX from "xlsx";
 import { saveAs } from 'file-saver';
+import { ws_header } from './consts';
 
 const getProcessedData = initialData => initialData
   .map(el => JSON.parse(el)
@@ -37,9 +38,8 @@ const createExcelFile = (data, isSplited) => {
     let wb = XLSX.utils.book_new();
     wb.SheetNames.push("Свод");
 
-    const ws_header = ['Страховой номер','Фамилия','Имя','Отчество','Дата увольнения','Дата приема - перевода'];
     const ws_data_set = data.flat().map((person) => Object.keys(person).map(key => ([[person[key].value]])));
-
+    console.log(ws_data_set)
     wb.Sheets["Свод"] = XLSX.utils.aoa_to_sheet([ws_header, ...ws_data_set]);
 
     if (isSplited) {

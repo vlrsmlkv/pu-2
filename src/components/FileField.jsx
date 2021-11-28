@@ -24,7 +24,7 @@ const FileField = ({onChange}) => {
           filesData.push(event.target.result);    
           if (i < files.length) reader.readAsText(files[i]);
           if (i === files.length) onChange(filesData);
-        }           
+        }
 
         if (i === 0) reader.readAsText(files[0]);
       }
@@ -42,7 +42,6 @@ const FileField = ({onChange}) => {
   
   return (
     <div className = "input-field">
-      <p>Шаг 1</p>
       <input
         type="file" 
         id="inputFile" 

@@ -2,13 +2,16 @@
 
 @media screen and (min-width: 992px) {
   .App {
-    justify-content: space-around;
     margin: 0em 10em;
     background-color: rgb(238, 238, 238);
     box-shadow: 0em 0em 1em 0.05em rgb(133, 133, 133);
   }
+
+  .container {
+    justify-content: space-around;
+  }
   
-  button {
+  .process-button, .download-button {
     width: 10em;
     height: 5em;
   }
@@ -18,7 +21,7 @@
     height: 2.85em;
   }
   
-  .checkbox-label, .processed-data-message {
+  .checkbox-label {
     font-size: small;
   }
 
@@ -35,19 +38,148 @@
   color: #333;
 }
 
+p {
+  text-align: center;
+}
+
 .App {
+  min-height: 100vh;
+}
+
+.preview-container, .show-preview-button {
+  background-color: rgb(223, 223, 223);
+}
+
+.preview-container {
   display: flex;
-  min-height: 100vh; 
+  justify-content: center;
+  align-items: center;
+  border: rgb(126, 126, 126);
+  margin: 3em 6em;
+  height: 24em;
+  padding: 2em;
+}
+
+.table-content {
+  height: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  display: block;
+  height: inherit;
+  overflow: scroll;
+  box-shadow: inset 0px -1px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+th, td {
+  padding: 0em 1em;
+}
+
+table, td {
+  border: 1px solid rgb(126, 126, 126);
+}
+
+table thead.sticky th {
+  position: sticky;
+  top: 0;
+}
+
+td {
+  font-size: 0.8em;
+}
+
+th {
+  background-color: #009879;
+  color: aliceblue;
+}
+
+.preview-button, th {
+  font-size: 0.9em;
+}
+
+.preview-button {
+  width: 5em;
+  background-color: transparent;
+  border-radius: 0.1em;
+  border: none;
+  border-right: solid 1px rgb(126, 126, 126);
+}
+
+.preview-button:first-of-type {
+  border-left: solid 1px rgb(126, 126, 126);
+}
+
+.preview-button.is-active {
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid #009879;
+  color: #008369;
+  font-weight: bold;
+} 
+
+.show-preview-button {
+  border: none;
+  height: inherit;
+}
+
+.preview-button-icon {
+  width: 40px;
+  height: 40px;
+  stroke: rgb(107, 107, 107);
+}
+
+.preview-title {
+  font-size: 2em;
+  color: rgb(107, 107, 107);
+}
+
+.preview-title:hover {
+  cursor: not-allowed;
+}
+
+.preview-title.is-active {
+  background: rgb(0, 0, 0) -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+	-webkit-background-size: 100px;
+  background-size: 100px;
+	color: rgba(255, 255, 255, 0.3);
+  background-clip: text;
+  animation: animate 2s infinite;
+  cursor: pointer;
+}
+
+.preview-button-icon.is-active {
+  stroke: black;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+@keyframes animate {
+	0%, 10% {
+		background-position: -1000px;
+	}
+	20% {
+		background-position: top left;
+	}
+	90% {
+		background-position: top right;
+	}
+	100% {
+		background-position: 1000px;
+	}
+}
+
+.container {
+  display: flex;
 }
 
 .file-field-and-checkbox, .input-field, .process-button, .download-button, .checkbox-container, span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-button {
-  padding: 1em 1em;
+.process-button, .download-button {
   border-radius: 0.3em;
   background-color: rgb(236, 236, 236);
   transition-duration: 0.4s;
@@ -55,7 +187,7 @@ button {
   transition: border 300ms ease;
 }
 
-button:hover, .input-field-label:hover {
+.process-button:hover, .download-button:hover, .input-field-label:hover {
   border: 2px solid #000;
   cursor: pointer;
 }
@@ -64,7 +196,7 @@ button:hover, .input-field-label:hover {
   cursor: pointer;
 }
 
-.checkbox-label, .processed-data-message {
+.checkbox-label {
   margin-top: 1em;
   width: 13em;
   text-align: center;
@@ -123,11 +255,12 @@ button:hover, .input-field-label:hover {
 }
 
 @media screen and (max-width: 992px) {
-  .App { 
+  .container { 
     flex-direction: column;
+    align-items: center;
   }
   
-  button {
+  .process-button, .download-button {
     width: 25em;
     height: 15em;
   }
@@ -146,7 +279,7 @@ button:hover, .input-field-label:hover {
     margin-top: 1em;
   }
   
-  .checkbox-label, .processed-data-message {
+  .checkbox-label {
     font-size: 2em;
   }
   
