@@ -28,6 +28,17 @@
   }
 }
 
+.not-found-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.not-found-page-text {
+  font-size: 8em;
+}
+
 .info-page-container {
   display: flex;
   justify-content: space-around;
@@ -92,7 +103,6 @@ ul.unordered li {
 
 #root {
   background-color: rgb(231, 231, 231);
-  min-height: 100vh;
 }
 
 .nav-bar {
@@ -124,7 +134,7 @@ ul.unordered li {
 
 .App {
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 4em);
 }
 
 .file-field-and-checkbox, .input-field, .process-button, .download-button, .checkbox-container, span {
