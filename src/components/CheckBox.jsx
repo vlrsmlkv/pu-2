@@ -8,7 +8,7 @@ const CheckBox = ({value, onChange}) => {
   return (
     <div className ="checkbox-container">
       <input type="checkbox" id="checkbox" className="checkbox" value={value} onChange={onChangeHandler}/>
-      <label htmlFor="checkbox" className="checkbox-label">Отображать каждый файл на отдельном листе</label> 
+      <label htmlFor="checkbox" className="checkbox-label">Show each file as a separate sheet</label> 
     </div>
   )
 }

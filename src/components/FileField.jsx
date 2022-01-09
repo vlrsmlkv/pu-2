@@ -36,12 +36,13 @@ const FileField = ({onChange}) => {
       ? `Выбрано файлов: ${filesNumber}`
       : (filesNumber === 1) 
         ? `${filesNameList}`
-        : <>Выбрать файлы <Paperclip/></>
+        : <>Choose file(s) <Paperclip/></>
     }
   </span> 
   
   return (
     <div className = "input-field">
+      <p>Step 1</p>
       <input
         type="file" 
         id="inputFile" 

@@ -1,63 +1,33 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import Main from "./pages/Main";
+import Info from "./pages/Info";
+import NavBar from "./components/NavBar";
+import NotFoundPage from "./components/NotFoundPage";
 
-import FileField from "./components/FileField";
-import CheckBox from "./components/CheckBox";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
-import PreviewProcessedData from "./components/PreviewProcessedData";
-
-import {createExcelFile, downloadExcelFile, getProcessedData} from "./utils.js"
-
-import { Download } from 'react-feather';
-
-import { ws_header } from './consts';
-
-const App = () => {
-  const [fileData, setFileData] = useState(null);
-  const [processedData, setProcessedData] = useState(null);
-  const [checkboxState, setCheckboxState] = useState(false);
-
-  return (
-    <div className="App">
-      <div className="container">
-        <div>
-          <p>Шаг 1</p>
-            <div className="file-field-and-checkbox">
-            <FileField
-              onChange={(data) => {
-                setFileData(data);
-                setProcessedData(null);
-              }}
-            />
-
-            <CheckBox
-              value={checkboxState}
-              onChange={setCheckboxState}
-            />
-          </div>
+const App = () => (
+  <Router>
+    <Route exact path="/">
+      <Redirect to={process.env.PUBLIC_URL} />
+    </Route> 
+    <Route>
+      <Router basename={process.env.PUBLIC_URL}>
+        <NavBar />
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <Main />
+            </Route>
+            <Route exact path="/info">
+              <Info />
+            </Route>
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
         </div>
-
-        <div>
-          <p>Шаг 2</p>
-          <button 
-            className="download-button"
-            disabled={!processedData}
-            onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}
-          >
-            <span>Скачать <Download/></span>
-          </button>
-        </div>
-      </div>
-
-      <PreviewProcessedData
-        isDisabledShowButton={!fileData}
-        onShowClick={() => setProcessedData(getProcessedData(fileData))}
-        data={processedData}
-        headerCells={ws_header}
-        isVisibleButtons={checkboxState}
-      />
-
-    </div>
-  );
-}
+      </Router>
+    </Route>
+  </Router>
+);
 
 export default App;
