@@ -9,46 +9,53 @@ import {createExcelFile, downloadExcelFile, getProcessedData} from "../utils";
 
 import { Download } from 'react-feather';
 
-const Main = () => {
+import { ws_header } from '../consts';
 
+const Main = () => {
   const [fileData, setFileData] = useState(null);
   const [processedData, setProcessedData] = useState(null);
   const [checkboxState, setCheckboxState] = useState(false);
 
   return (
     <>
-      <div className="file-field-and-checkbox">
-      <FileField
-        onChange={setFileData}
+      <div className="container">
+        <div>
+          <div className="file-field-and-checkbox">
+            <FileField
+              onChange={(data) => {
+                setFileData(data);
+                setProcessedData(null);
+              }}
+            />
+
+            <CheckBox
+              value={checkboxState}
+              onChange={setCheckboxState}
+            />
+          </div>
+        </div>
+
+        <div>
+          <p>Step 2</p>
+          <button 
+            className="download-button"
+            disabled={!processedData}
+            onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}
+          >
+            <span>Скачать <Download/></span>
+          </button>
+        </div>
+      </div>
+
+      <PreviewProcessedData
+        isDisabledShowButton={!fileData}
+        onShowClick={() => setProcessedData(getProcessedData(fileData))}
+        data={processedData}
+        headerCells={ws_header}
+        isVisibleButtons={checkboxState}
       />
-
-      <CheckBox
-        value={checkboxState}
-        onChange={setCheckboxState}
-      />
-      </div>
-
-      <div className="process-button">
-        <p>Step 2</p>
-        <button 
-          disabled={!fileData}   
-          onClick={() => setProcessedData(getProcessedData(fileData))}>
-          <span>Process file(s)</span>
-        </button>
-        <PreviewProcessedData data={processedData}/>
-      </div>
-
-      <div className="download-button">
-        <p>Step 3</p>
-        <button 
-          disabled={!processedData}
-          onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}>
-          <span>Download <Download/></span>
-        </button>
-      </div>
     </>
-)
-
+  );
 }
 
 export default Main;

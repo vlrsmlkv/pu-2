@@ -24,7 +24,7 @@ const FileField = ({onChange}) => {
           filesData.push(event.target.result);    
           if (i < files.length) reader.readAsText(files[i]);
           if (i === files.length) onChange(filesData);
-        }           
+        }
 
         if (i === 0) reader.readAsText(files[0]);
       }
