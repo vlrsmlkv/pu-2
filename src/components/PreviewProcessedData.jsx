@@ -20,7 +20,7 @@ const PreviewProcessedData = ({
           <span 
             className={classNames("preview-title", !isDisabledShowButton && "is-active")}
           >
-            Показать превью <Eye className={classNames("preview-button-icon", !isDisabledShowButton && "is-active")}/>
+            Show preview <Eye className={classNames("preview-button-icon", !isDisabledShowButton && "is-active")}/>
           </span>
       </button>
   </div>

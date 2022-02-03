@@ -33,7 +33,7 @@ const FileField = ({onChange}) => {
   
   const inputFileLabel = <span className="button-content"> 
     {filesNumber > 1 
-      ? `Выбрано файлов: ${filesNumber}`
+      ? `Selected files: ${filesNumber}`
       : (filesNumber === 1) 
         ? `${filesNameList}`
         : <>Choose file(s) <Paperclip/></>

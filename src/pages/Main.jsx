@@ -42,7 +42,7 @@ const Main = () => {
             disabled={!processedData}
             onClick={() => downloadExcelFile(createExcelFile(processedData, checkboxState))}
           >
-            <span>Скачать <Download/></span>
+            <span>Download <Download/></span>
           </button>
         </div>
       </div>
