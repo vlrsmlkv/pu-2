@@ -8,13 +8,12 @@ This is an app created to process data provided in .txt format.
 
 ## Stack :woman_technologist:
 - JavaScript 
-- HTML
-- CSS
-- React Suite library
+- HTML/CSS
+- React
+- Redux
 
 
 # Author :upside_down_face:
  - Github.com: [Me](https://github.com/vlrsmlkv/)
 
 Special thanks go to my mentor and best friend [Mishanya](https://github.com/OUghTMS/), who helps me all the time.
-
