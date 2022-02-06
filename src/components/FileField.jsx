@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
+import { connect } from "react-redux";
 import { Paperclip } from 'react-feather';
+
+import { setRawDataAction, setDataAction } from "../store/actions";
 
 const FileField = ({onChange}) => {
   const [filesNumber, setFilesNumber] = useState(null);
@@ -60,4 +63,11 @@ const FileField = ({onChange}) => {
   )
 }
 
-export default FileField;
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (data) => {
+    dispatch(setRawDataAction(data));
+    dispatch(setDataAction(null));
+  }
+})
+
+export default connect(null, mapDispatchToProps)(FileField);
