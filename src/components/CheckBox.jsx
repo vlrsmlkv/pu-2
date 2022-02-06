@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { toggleIsActiveAdditionalSheets } from "../store/actions";
 
 const CheckBox = ({value, onChange}) => {
   const onChangeHandler = (event) => {
@@ -13,4 +15,12 @@ const CheckBox = ({value, onChange}) => {
   )
 }
 
-export default CheckBox;
+const mapStateToProps = (state) => ({
+  value: state.isActiveAdditionalSheets
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (value) => dispatch(toggleIsActiveAdditionalSheets(value))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(CheckBox);

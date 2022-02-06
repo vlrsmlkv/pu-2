@@ -1,6 +1,10 @@
-import classNames from "classnames";
 import { useState } from "react";
 import { Eye } from 'react-feather';
+import { connect } from "react-redux";
+
+import classNames from "classnames";
+
+import { processDataAction } from "../store/actions";
 
 const PreviewProcessedData = ({
   isDisabledShowButton,
@@ -56,7 +60,7 @@ const PreviewProcessedData = ({
               className={classNames("preview-button", activeButton === -1 && "is-active")}
               onClick={() => setActiveButton(-1)}
             >
-                Свод
+              Свод
             </button>
 
             {data.map((el, index) => 
@@ -74,4 +78,14 @@ const PreviewProcessedData = ({
   );
 }
 
-export default PreviewProcessedData;
+const mapStateToProps = (state) => ({
+  isDisabledShowButton: !state.rawData,
+  isVisibleButtons: state.isActiveAdditionalSheets,
+  data: state.data
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onShowClick: () => dispatch(processDataAction())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PreviewProcessedData);
