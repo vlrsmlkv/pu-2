@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Disc, Info } from 'react-feather';
 
+import "./NavBar.scss";
+
 const NavBar = () => (
   <div className="nav-bar">
     <NavLink

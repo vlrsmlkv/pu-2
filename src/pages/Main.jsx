@@ -9,7 +9,7 @@ import { ws_header } from '../consts';
 
 const Main = () => (
   <>
-    <div className="container">
+    <div className="control-container">
       <div>
         <div className="file-field-and-checkbox">
           <FileField />

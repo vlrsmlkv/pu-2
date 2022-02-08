@@ -1,0 +1,49 @@
+.input-field, .input-field-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field {
+  
+  #inputFile {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .input-field-label {
+    align-items: center;
+    justify-content: center;
+    padding: 0.95em 0.8em;
+    border-radius: 0.3em;
+    border: 2px dashed rgb(80, 80, 80);
+    transition: border 350ms ease;
+    cursor: pointer;
+
+    div {
+      width: inherit;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    
+    &:hover {
+      border: 2px solid #000;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .input-field-label {
+    width: 8.2em;
+    height: 2.85em;
+  }
+}
+@media screen and (max-width: 992px) {
+  .input-field-label {
+    padding: 0.8em 0.8em;
+    width: 23em;
+    height: 13em;
+  }
+}

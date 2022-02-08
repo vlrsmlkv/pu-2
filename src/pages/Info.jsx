@@ -28,7 +28,7 @@ const Info = () => {
         <ul className="unordered">
           <li><b>Step 1.</b> Upload files.
             <ul className="unordered">
-              <li className="additional">In case you want each processed file to be displayed on a separate excel sheet, tick the "Show each file as a separate sheet" checkbox.</li>
+              <li>In case you want each processed file to be displayed on a separate excel sheet, tick the "Show each file as a separate sheet" checkbox.</li>
             </ul>
           </li>
           <li><b>Step 2.</b> Click on "Show preview" button if needed.</li>
@@ -55,10 +55,8 @@ const Info = () => {
           </li>
         </ul>
       </InfoBlock>
-      
     </div>
   );
-
 }
 
 export default Info;

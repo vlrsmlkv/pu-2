@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./InfoBlock.scss";
+
 const InfoBlock = ({children, icon, header, infoText}) => (
   <div className="info-page-block">
     {icon}
