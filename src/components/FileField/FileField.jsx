@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import { connect } from "react-redux";
 import { Paperclip } from 'react-feather';
 
-import { setRawDataAction, setDataAction } from "../store/actions";
+import { setRawDataAction, setDataAction } from "../../store/actions";
+
+import "./FileField.scss";
 
 const FileField = ({onChange}) => {
   const [filesNumber, setFilesNumber] = useState(null);
@@ -34,17 +36,17 @@ const FileField = ({onChange}) => {
     }
   }
   
-  const inputFileLabel = <span className="button-content"> 
+  const inputFileLabel = <div>
     {filesNumber > 1 
       ? `Selected files: ${filesNumber}`
       : (filesNumber === 1) 
         ? `${filesNameList}`
-        : <>Choose file(s) <Paperclip/></>
+        : <>Choose file(s) <span><Paperclip/></span></>
     }
-  </span> 
+  </div> 
   
   return (
-    <div className = "input-field">
+    <div className="input-field">
       <p>Step 1</p>
       <input
         type="file" 

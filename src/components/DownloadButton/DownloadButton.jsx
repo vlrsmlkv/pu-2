@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import { Download } from "react-feather";
 
-import { createExcelFile, downloadExcelFile } from "../utils";
+import { createExcelFile, downloadExcelFile } from "../../utils";
+
+import "./DownloadButton.scss";
 
 const DownloadButton = ({disabled, onDownload}) => (
   <div>

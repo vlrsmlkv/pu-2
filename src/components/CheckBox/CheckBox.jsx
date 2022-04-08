@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleIsActiveAdditionalSheets } from "../store/actions";
+import { toggleIsActiveAdditionalSheets } from "../../store/actions";
+
+import "./CheckBox.scss";
 
 const CheckBox = ({value, onChange}) => {
   const onChangeHandler = (event) => {

@@ -1,0 +1,30 @@
+.nav-bar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+  padding: 0em 10em;
+  height: 4em;
+  box-shadow: 0em -0.1em 1em 0em rgb(185, 185, 185);
+}
+
+.nav-bar-button {
+  text-decoration: none;
+  margin: 0em 2em 0em 0em;
+  display: flex;
+  align-items: center;
+  height: 2em;
+  border-bottom: 0.15em solid transparent;
+  
+  &:hover {
+    border-bottom: 0.15em solid rgb(192, 192, 192);
+  }
+}
+
+.nav-bar-button-icon {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.3em;
+}

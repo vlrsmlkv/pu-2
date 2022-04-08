@@ -1,0 +1,25 @@
+.info-page-block {
+  width: 22em;
+  height: 17em;
+  height: fit-content;
+  text-align: center;
+  border: 0.1em solid #000;
+  border-radius: 0.4em;
+  margin-bottom: 1em;
+  padding: 1em;
+  
+  .info-heading {
+    font-size: large;
+    font-weight: bolder;
+    max-width: fit-content;
+    padding: 0.3em 0.6em;
+    background-color: #000;
+    color: rgb(255, 255, 255);
+    margin: 1em 0em 0em 0em;
+  }
+  
+  .info-page-text {
+    font-size: medium;
+    margin: 1.5em 0em;
+  }
+}
